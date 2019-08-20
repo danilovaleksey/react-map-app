@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.scss';
+import MapContainer from "./components/Map/MapContainer";
+import ListContainer from "./components/List/ListContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className={styles.wrapper}>
+        <div className={styles.list}>
+          <ListContainer />
+        </div>
+        <div className={styles.map}>
+          <MapContainer />
+        </div>
+      </div>
   );
 }
 
