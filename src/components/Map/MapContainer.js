@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {mapApiKey} from "../../api/api";
 import {
+  changeMarkPosition,
   setMapCenter
 } from "../../store/actions/map";
 
@@ -11,18 +12,18 @@ import {
 class MapContainer extends React.Component {
   static propTypes = {
     polylineGeometry: PropTypes.array,
+    changeMarkPosition: PropTypes.func,
   };
   static defaultProps = {
     polylineGeometry: [],
-  };
-  onMarkChange = (e) => {
-    console.log(e.originalEvent);
+    changeMarkPosition: ()=>{},
   };
   render() {
     const {
       markers,
       polylineGeometry,
-        setMapCenter
+      setMapCenter,
+      changeMarkPosition
     } = this.props;
     return (
         <YMaps
@@ -54,11 +55,10 @@ class MapContainer extends React.Component {
               markers.map((marker, index) => (
                 <Placemark
                     key={index}
-                    onGeometryChange={this.onMarkChange}
+                    onGeometryChange={(e) => changeMarkPosition(e.originalEvent.target.geometry._coordinates, index)}
                     modules={['geoObject.addon.balloon']}
                     geometry={marker.geometry}
                     properties={{
-                    id: index,
                     balloonContent: marker.markerName,
                   }}
                     options={{
@@ -80,5 +80,6 @@ const mapStateToProps = (state) => {
   }
 };
 export default connect(mapStateToProps, {
-  setMapCenter
+  setMapCenter,
+  changeMarkPosition
 }) (MapContainer);
