@@ -3,7 +3,12 @@ import {
 } from '../types/map';
 
 let initialState = {
-    list: [],
+    markers: [
+        {
+            id: 1,
+            name: '',
+        }
+    ],
 };
 
 export function MapState (state = initialState, action) {
@@ -11,7 +16,7 @@ export function MapState (state = initialState, action) {
         case GET_LIST:
             return {
                 ...state,
-                list: action.list
+                markers: action.markers
             };
         default:
             return state;

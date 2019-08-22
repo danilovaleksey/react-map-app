@@ -3,9 +3,9 @@ import {
 } from "../types/map";
 
 // ACTIONS
-const getList = (list) => ({
+const getList = (markers) => ({
     type: GET_LIST,
-    list
+    markers
 });
 
 export {
