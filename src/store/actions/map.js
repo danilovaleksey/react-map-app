@@ -6,6 +6,8 @@ import {
     CLEAN_ADD_MARK_INPUT,
     CHANGE_MARK_GEOMETRY,
     CHANGE_POLYLINE_GEOMETRY,
+    DELETE_MARK,
+    DELETE_POLYLINE_GEOMETRY,
 } from "../types/map";
 
 // ACTIONS
@@ -40,6 +42,14 @@ const changePolylineGeometry = (geometry, index) => ({
     geometry,
     index
 });
+const deleteMarker = (index) => ({
+    type: DELETE_MARK,
+    index
+});
+const deletePolylineGeometry = (index) => ({
+    type: DELETE_POLYLINE_GEOMETRY,
+    index
+});
 
 // THUNK FUNCTIONS
 const createNewMark = () => {
@@ -51,10 +61,14 @@ const createNewMark = () => {
 };
 const changeMarkPosition = (geometry, index) => {
     return (dispatch) => {
-        console.log(geometry);
-        console.log(index);
         dispatch(changeMarkGeometry(geometry, index));
         dispatch(changePolylineGeometry(geometry, index));
+    }
+};
+const deleteMark = (index) => {
+    return (dispatch) => {
+        dispatch(deleteMarker(index));
+        dispatch(deletePolylineGeometry(index));
     }
 };
 
@@ -64,4 +78,5 @@ export {
     setNewMarkName,
     createNewMark,
     changeMarkPosition,
+    deleteMark,
 };

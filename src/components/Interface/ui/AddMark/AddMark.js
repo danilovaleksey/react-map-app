@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import styles from './AddMark.module.scss';
 
 class AddMark extends React.Component {
   static propTypes = {
@@ -27,11 +28,15 @@ class AddMark extends React.Component {
       setNewMarkName
     } = this.props;
     return (
+        <div className={styles.wrapper}>
           <input type="text"
                  onChange={event => setNewMarkName(event.target.value)}
                  onKeyDown={this._handleKeyDown}
                  value={newMarkName}
+                 placeholder={'Choose mark name'}
           />
+        </div>
+
     )
   }
 }

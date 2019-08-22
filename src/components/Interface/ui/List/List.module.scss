@@ -1,0 +1,30 @@
+.list {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .listItem {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px;
+
+    p {
+      word-wrap: break-word;
+      width: 80%;
+    }
+    button {
+      width: 50px;
+      height: 20px;
+      margin-left: 10px;
+    }
+  }
+}

@@ -6,6 +6,8 @@ import {
     CLEAN_ADD_MARK_INPUT,
     CHANGE_MARK_GEOMETRY,
     CHANGE_POLYLINE_GEOMETRY,
+    DELETE_MARK,
+    DELETE_POLYLINE_GEOMETRY,
 } from '../types/map';
 
 let initialState = {
@@ -65,6 +67,23 @@ export function MapState (state = initialState, action) {
                 polylineGeometry: newArray,
             };
         }
+        case DELETE_MARK: {
+            let newArray = [...state.markers];
+            newArray.splice(action.index, 1);
+            return {
+                ...state,
+                markers: newArray,
+            };
+        }
+        case DELETE_POLYLINE_GEOMETRY: {
+            let newArray = [...state.polylineGeometry];
+            newArray.splice(action.index, 1);
+            return {
+                ...state,
+                polylineGeometry: newArray,
+            };
+        }
+
         default:
             return state;
     }
