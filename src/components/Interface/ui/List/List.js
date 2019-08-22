@@ -1,12 +1,18 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 class List extends React.Component {
+  static propTypes = {
+    markers: PropTypes.array,
+  };
+  static defaultProps = {
+    markers: [],
+  };
   render() {
+    const {markers} = this.props;
     return (
           <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {markers.map((marker, index) => <li key={index}>{marker.markerName}</li>)}
           </ul>
     )
   }
