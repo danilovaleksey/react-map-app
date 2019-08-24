@@ -8,6 +8,7 @@ import {
   createNewMark,
   deleteMark,
   setNewMarkName,
+  updateMarkers,
 } from "../../store/actions/map";
 
 
@@ -18,6 +19,7 @@ class InterfaceContainer extends React.Component {
     setNewMarkName: PropTypes.func,
     createNewMark: PropTypes.func,
     deleteMark: PropTypes.func,
+    updateMarkers: PropTypes.func,
   };
   static defaultProps = {
     markers: [],
@@ -25,6 +27,7 @@ class InterfaceContainer extends React.Component {
     setNewMarkName: ()=> {},
     createNewMark: ()=>{},
     deleteMark: ()=>{},
+    updateMarkers: ()=>{},
   };
   render() {
     const {
@@ -33,11 +36,12 @@ class InterfaceContainer extends React.Component {
       setNewMarkName,
       createNewMark,
       deleteMark,
+      updateMarkers,
     } = this.props;
     return (
         <div>
           <AddMark setNewMarkName={setNewMarkName} createNewMark={createNewMark} newMarkName={newMarkName}/>
-          <List markers={markers} deleteMark={deleteMark}/>
+          <List markers={markers} deleteMark={deleteMark} updateMarkers={updateMarkers} />
         </div>
     )
   }
@@ -54,4 +58,5 @@ export default connect(mapStateToProps, {
   setNewMarkName,
   createNewMark,
   deleteMark,
+  updateMarkers,
 }) (InterfaceContainer);

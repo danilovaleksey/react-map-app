@@ -8,6 +8,7 @@ import {
     CHANGE_POLYLINE_GEOMETRY,
     DELETE_MARK,
     DELETE_POLYLINE_GEOMETRY,
+    UPDATE_MARKERS,
 } from "../types/map";
 
 // ACTIONS
@@ -50,6 +51,10 @@ const deletePolylineGeometry = (index) => ({
     type: DELETE_POLYLINE_GEOMETRY,
     index
 });
+const updateMarkers = (markers) => ({
+    type: UPDATE_MARKERS,
+    markers
+});
 
 // THUNK FUNCTIONS
 const createNewMark = () => {
@@ -79,4 +84,5 @@ export {
     createNewMark,
     changeMarkPosition,
     deleteMark,
+    updateMarkers,
 };

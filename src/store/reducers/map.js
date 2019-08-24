@@ -8,6 +8,7 @@ import {
     CHANGE_POLYLINE_GEOMETRY,
     DELETE_MARK,
     DELETE_POLYLINE_GEOMETRY,
+    UPDATE_MARKERS,
 } from '../types/map';
 
 let initialState = {
@@ -34,9 +35,19 @@ export function MapState (state = initialState, action) {
         case ADD_NEW_MARK: {
             let name = state.newMarkName;
             let geometry = state.mapCenter;
+            let id = 1;
+            if (state.markers.length !== 0) {
+                state.markers.map((marker) => {
+                    if (marker.id >= id) {
+                        id = marker.id;
+                    }
+                    return null;
+                });
+                id += 1;
+            }
             return {
                 ...state,
-                markers: [...state.markers,{markerName: name, geometry: geometry}],
+                markers: [...state.markers,{id: id, markerName: name, geometry: geometry}],
             };
         }
         case ADD_NEW_POLYLINE_GEOMETRY: {
@@ -81,6 +92,12 @@ export function MapState (state = initialState, action) {
             return {
                 ...state,
                 polylineGeometry: newArray,
+            };
+        }
+        case UPDATE_MARKERS: {
+            return {
+                ...state,
+                markers: action.markers,
             };
         }
 
