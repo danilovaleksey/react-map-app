@@ -22,9 +22,18 @@
       width: 80%;
     }
     button {
-      width: 50px;
-      height: 20px;
+      width: 60px;
+      height: 25px;
       margin-left: 10px;
+      border-radius: 20px;
+      border-color: #0EC0FF;
+      background-color: #0EC0FF;
+      color: white;
+      outline: none;
+      &:hover {
+        background-color: white;
+        color: #0EC0FF;
+      }
     }
   }
 }

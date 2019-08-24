@@ -18,7 +18,6 @@ class AddMark extends React.Component {
       createNewMark
     } = this.props;
     if (e.key === 'Enter') {
-      console.log('do validate');
       createNewMark();
     }
   };
