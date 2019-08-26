@@ -12,11 +12,14 @@ import {
 } from '../types/map';
 
 let initialState = {
+    // markers: {id: 1, markerName: 'Name', geometry: [55, 54]}
     markers: [],
 
+    // properties to create new mark
     mapCenter: [55.751574, 37.573856],
     newMarkName: '',
 
+    // geometry to create polylines
     polylineGeometry: []
 };
 

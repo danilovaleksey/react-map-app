@@ -79,10 +79,11 @@ const deleteMark = (index) => {
 
 
 export {
-    setMapCenter,
-    setNewMarkName,
     createNewMark,
     changeMarkPosition,
     deleteMark,
+
+    setMapCenter,
+    setNewMarkName,
     updateMarkers,
 };

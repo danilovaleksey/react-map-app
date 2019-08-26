@@ -11,19 +11,23 @@ import {
 
 class MapContainer extends React.Component {
   static propTypes = {
+    markers: PropTypes.array,
     polylineGeometry: PropTypes.array,
     changeMarkPosition: PropTypes.func,
+    setMapCenter: PropTypes.func,
   };
   static defaultProps = {
+    markers: [],
     polylineGeometry: [],
     changeMarkPosition: ()=>{},
+    setMapCenter: ()=>{},
   };
   render() {
     const {
       markers,
       polylineGeometry,
+      changeMarkPosition,
       setMapCenter,
-      changeMarkPosition
     } = this.props;
     return (
         <YMaps
@@ -36,9 +40,9 @@ class MapContainer extends React.Component {
                 center: [55.751574, 37.573856],
                 zoom: 7,
               }}
-              width={'70vw'}
-              height={'100vh'}
-               onBoundsChange={(e) => setMapCenter(e)}
+                width={'70vw'}
+                height={'100vh'}
+                onBoundsChange={(e) => setMapCenter(e)}
           >
             <GeolocationControl options={{ float: 'left' }} />
             <ZoomControl options={{ float: 'left' }} />

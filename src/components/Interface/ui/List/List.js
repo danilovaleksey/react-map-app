@@ -4,7 +4,6 @@ import styles from './List.module.scss';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 
-
 class List extends React.Component {
   static propTypes = {
     markers: PropTypes.array,
@@ -27,11 +26,9 @@ class List extends React.Component {
       markers,
       updateMarkers
     } = this.props;
-
     if (!result.destination) {
       return;
     }
-
     const items = this.reorder(
         markers,
         result.source.index,
@@ -45,36 +42,36 @@ class List extends React.Component {
       deleteMark,
     } = this.props;
     return (
-        <div className={styles.list}>
+      <div className={styles.list}>
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable droppableId={"droppable"}>
             {(provided) => (
-                <div
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}
-                >
-                  {markers.map((item, index) => (
-                      <Draggable key={item.id} draggableId={String(item.id)} index={index}  >
-                        {(provided) => (
-                            <div
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                            >
-                              <div  className={styles.listItem}>
-                                <p> {item.markerName}</p>
-                                <button onClick={() => deleteMark(index)}>Delete</button>
-                              </div>
-                            </div>
-                        )}
-                      </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
+              <div
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+              >
+                {markers.map((item, index) => (
+                  <Draggable key={item.id} draggableId={String(item.id)} index={index}  >
+                    {(provided) => (
+                      <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                      >
+                        <div  className={styles.listItem}>
+                          <p> {item.markerName}</p>
+                          <button onClick={() => deleteMark(index)}>Delete</button>
+                        </div>
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
             )}
           </Droppable>
         </DragDropContext>
-        </div>
+      </div>
     )
   }
 }
