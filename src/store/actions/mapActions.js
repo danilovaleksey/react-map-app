@@ -79,10 +79,6 @@ const deleteMark = (index) => {
 
 
 export {
-    createNewMark,
-    changeMarkPosition,
-    deleteMark,
-
     setMapCenter,
     setNewMarkName,
     addNewMark,
@@ -93,4 +89,9 @@ export {
     deleteMarker,
     deletePolylineGeometry,
     updateMarkers,
+
+
+    createNewMark,
+    changeMarkPosition,
+    deleteMark,
 };
