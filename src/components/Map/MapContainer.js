@@ -6,7 +6,7 @@ import {mapApiKey} from "../../api/api";
 import {
   changeMarkPosition,
   setMapCenter
-} from "../../store/actions/map";
+} from "../../store/actions/mapActions";
 
 
 class MapContainer extends React.Component {

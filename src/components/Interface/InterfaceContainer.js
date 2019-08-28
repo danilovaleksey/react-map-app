@@ -9,7 +9,7 @@ import {
   deleteMark,
   setNewMarkName,
   updateMarkers,
-} from "../../store/actions/map";
+} from "../../store/actions/mapActions";
 
 
 class InterfaceContainer extends React.Component {

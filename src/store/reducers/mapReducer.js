@@ -11,7 +11,7 @@ import {
     UPDATE_MARKERS,
 } from '../types/map';
 
-let initialState = {
+export const initialState = {
     // markers: {id: 1, markerName: 'Name', geometry: [55, 54]}
     markers: [],
 
@@ -23,7 +23,7 @@ let initialState = {
     polylineGeometry: []
 };
 
-export function MapState (state = initialState, action) {
+export default function MapState (state = initialState, action) {
     switch (action.type) {
         case SET_MAP_CENTER:
             return {

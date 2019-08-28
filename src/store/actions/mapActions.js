@@ -85,5 +85,12 @@ export {
 
     setMapCenter,
     setNewMarkName,
+    addNewMark,
+    addNewPolylineGeometry,
+    cleanAddMarkInput,
+    changeMarkGeometry,
+    changePolylineGeometry,
+    deleteMarker,
+    deletePolylineGeometry,
     updateMarkers,
 };
