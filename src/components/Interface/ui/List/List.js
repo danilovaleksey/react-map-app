@@ -42,7 +42,7 @@ class List extends React.Component {
       deleteMark,
     } = this.props;
     return (
-      <div className={styles.list}>
+      <div className={styles.list} data-test='listComponent'>
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable droppableId={"droppable"}>
             {(provided) => (
@@ -51,14 +51,14 @@ class List extends React.Component {
                   ref={provided.innerRef}
               >
                 {markers.map((item, index) => (
-                  <Draggable key={item.id} draggableId={String(item.id)} index={index}  >
+                  <Draggable  key={item.id} draggableId={String(item.id)} index={index}  >
                     {(provided) => (
                       <div
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                       >
-                        <div  className={styles.listItem}>
+                        <div data-test='markerItem'  className={styles.listItem}>
                           <p> {item.markerName}</p>
                           <button onClick={() => deleteMark(index)}>Delete</button>
                         </div>

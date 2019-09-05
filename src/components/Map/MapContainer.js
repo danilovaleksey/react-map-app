@@ -1,5 +1,5 @@
 import React from 'react';
-import {YMaps, Map, Placemark, Polyline, GeolocationControl, ZoomControl,} from "react-yandex-maps";
+import {YMaps, Map, Placemark, Polyline, ZoomControl,} from "react-yandex-maps";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {mapApiKey} from "../../api/api";
@@ -44,7 +44,6 @@ class MapContainer extends React.Component {
                 height={'100vh'}
                 onBoundsChange={(e) => setMapCenter(e)}
           >
-            <GeolocationControl options={{ float: 'left' }} />
             <ZoomControl options={{ float: 'left' }} />
 
             <Polyline

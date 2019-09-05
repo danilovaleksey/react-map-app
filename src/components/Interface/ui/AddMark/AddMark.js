@@ -27,15 +27,15 @@ class AddMark extends React.Component {
       setNewMarkName
     } = this.props;
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} data-test='addMark'>
           <input type="text"
                  onChange={event => setNewMarkName(event.target.value)}
                  onKeyDown={this._handleKeyDown}
                  value={newMarkName}
                  placeholder={'Choose mark name'}
+                 data-test='addInput'
           />
         </div>
-
     )
   }
 }
